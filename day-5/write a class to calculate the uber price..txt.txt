@@ -1,0 +1,27 @@
+// A class to represent an Uber ride
+public class UberRide {
+  // Class properties
+  private double baseFare; // The base fare for the ride
+  private double timeRate; // The rate per minute for the ride
+  private double distanceRate; // The rate per mile or kilometer for the ride
+  private double surgeMultiplier; // The surge multiplier for the ride
+  private double tollsAndFees; // The tolls and other fees for the ride
+
+  // A constructor that takes the base fare, time rate, distance rate, surge multiplier, and tolls and fees as arguments and sets the class properties accordingly
+  public UberRide(double baseFare, double timeRate, double distanceRate, double surgeMultiplier, double tollsAndFees) {
+    this.baseFare = baseFare; // Assign the base fare argument to the base fare property
+    this.timeRate = timeRate; // Assign the time rate argument to the time rate property
+    this.distanceRate = distanceRate; // Assign the distance rate argument to the distance rate property
+    this.surgeMultiplier = surgeMultiplier; // Assign the surge multiplier argument to the surge multiplier property
+    this.tollsAndFees = tollsAndFees; // Assign the tolls and fees argument to the tolls and fees property
+  }
+
+  // A method that takes the time and distance of the ride as arguments and returns the calculated price of the ride
+  public double getPrice(double time, double distance) {
+    // Use the formula from [Uber Estimate](https://ridelancer.com/how-much-does-uber-cost/) to calculate the price of the ride
+    double price = (baseFare + (timeRate * time) + (distanceRate * distance)) * surgeMultiplier + tollsAndFees;
+    return price;
+  }
+
+  // Other methods and behaviors of the class
+}
